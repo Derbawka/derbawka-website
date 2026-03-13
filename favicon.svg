@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 2px #4ade8044); }
+      to   { filter: drop-shadow(0 0 6px #4ade80cc); }
+    }
+    .cactus { animation: glow 2s ease-in-out infinite alternate; }
+  </style>
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#0d0418"/>
+  <!-- Cactus -->
+  <g class="cactus">
+    <!-- Main trunk -->
+    <rect x="13" y="8" width="6" height="16" rx="3" fill="#2d6a35"/>
+    <!-- Left arm -->
+    <rect x="7" y="14" width="7" height="4" rx="2" fill="#2d6a35"/>
+    <rect x="7" y="11" width="4" height="7" rx="2" fill="#2d6a35"/>
+    <!-- Right arm -->
+    <rect x="18" y="16" width="7" height="4" rx="2" fill="#2d6a35"/>
+    <rect x="21" y="13" width="4" height="7" rx="2" fill="#2d6a35"/>
+    <!-- Spines left -->
+    <line x1="5" y1="13" x2="8" y2="15" stroke="#4a8a52" stroke-width="1" stroke-linecap="round"/>
+    <line x1="5" y1="17" x2="8" y2="17" stroke="#4a8a52" stroke-width="1" stroke-linecap="round"/>
+    <!-- Spines right -->
+    <line x1="27" y1="15" x2="24" y2="17" stroke="#4a8a52" stroke-width="1" stroke-linecap="round"/>
+    <line x1="27" y1="19" x2="24" y2="19" stroke="#4a8a52" stroke-width="1" stroke-linecap="round"/>
+    <!-- Spines trunk top -->
+    <line x1="16" y1="6" x2="16" y2="9" stroke="#4a8a52" stroke-width="1" stroke-linecap="round"/>
+    <line x1="14" y1="7" x2="15" y2="9" stroke="#4a8a52" stroke-width="1" stroke-linecap="round"/>
+    <line x1="18" y1="7" x2="17" y2="9" stroke="#4a8a52" stroke-width="1" stroke-linecap="round"/>
+    <!-- Ground line -->
+    <line x1="10" y1="25" x2="22" y2="25" stroke="#2d6a35" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>
