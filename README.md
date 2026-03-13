@@ -1,6 +1,9 @@
 # Derbawka.com — Personal Website
 
-Static personal website with a cinematic Arizona desert night hero, parallax scrolling, and a contact form routing to nick@derbawka.com.
+Static personal website for **derbawka.com** — cinematic Arizona desert night hero, parallax scrolling, and a contact form.
+
+**Live site:** https://derbawka.com
+**GitHub repo:** https://github.com/Derbawka/derbawka-website
 
 ---
 
