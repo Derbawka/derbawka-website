@@ -169,6 +169,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .contact-header {
@@ -274,17 +275,76 @@ body {
 }
 
 /* ============================================================
+   CONTACT STARS
+   ============================================================ */
+.contact-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cstar {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--c, #ffffff);
+  width: var(--d);
+  height: var(--d);
+  transform: translate(-50%, -50%);
+  opacity: 0.12;
+  transition: opacity 0.7s ease;
+  animation: none;
+}
+
+body:has(.footer-hub-link:hover) .cstar {
+  opacity: 1;
+}
+
+body:has(.footer-hub-link:hover) .star-twinkle      { animation: twinkle 3s ease-in-out infinite; }
+body:has(.footer-hub-link:hover) .star-twinkle-slow { animation: twinkleSlow 5s ease-in-out infinite; }
+body:has(.footer-hub-link:hover) .star-twinkle-fast { animation: twinkleFast 1.8s ease-in-out infinite; }
+
+.contact-header,
+.contact-form {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .footer {
   background-color: #040405;
   border-top: 1px solid rgba(109, 40, 217, 0.15);
   padding: 24px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.2);
+}
+
+.footer p {
+  color: #ffffff;
+}
+
+.footer-hub-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fcd34d;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  white-space: nowrap;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+
+.footer-hub-link:hover {
+  color: #fef3c7;
+  text-shadow: 0 0 22px rgba(251, 191, 36, 0.95);
 }
 
 /* ============================================================
@@ -347,6 +407,8 @@ body {
   .star-twinkle,
   .star-twinkle-slow,
   .star-twinkle-fast { animation: none; }
+
+  .cstar { animation: none !important; }
 
   .scroll-hint svg { animation: none; }
 
