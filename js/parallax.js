@@ -73,4 +73,12 @@
   } else {
     init();
   }
+
+  // Clear form when user navigates back from Formspree (bfcache restore)
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      var form = document.querySelector('.contact-form');
+      if (form) form.reset();
+    }
+  });
 })();
