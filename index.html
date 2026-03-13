@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Derbawka</title>
+  <meta name="description" content="Derbawka — personal site of Nick Derbawka." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero" aria-label="Hero">
+
+    <!-- LAYER 1: SKY — data-speed 0.1 (slowest / farthest back) -->
+    <svg id="layer-sky"
+         class="parallax-layer"
+         data-speed="0"
+         xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice"
+         aria-hidden="true">
+      <defs>
+        <!-- Sky gradient: deep purple at top → dark navy near horizon -->
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#1a0a2e" />
+          <stop offset="40%"  stop-color="#2d1b69" />
+          <stop offset="100%" stop-color="#0f2a4a" />
+        </linearGradient>
+
+        <!-- Moon glow filter -->
+        <filter id="moonGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="12" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Sky background rect -->
+      <rect width="1440" height="900" fill="url(#skyGrad)" />
+
+      <!-- Moon + outer glow halo -->
+      <circle cx="1100" cy="140" r="60" fill="rgba(254,243,199,0.12)" />
+      <circle cx="1100" cy="140" r="42" fill="rgba(254,243,199,0.25)" filter="url(#moonGlow)" />
+      <circle cx="1100" cy="140" r="32" fill="#fef3c7" />
+
+      <!-- Stars — mix of sizes and twinkle speeds -->
+      <!-- Row 1 -->
+      <circle class="star-twinkle"      cx="45"   cy="38"  r="1.2" fill="#fff" style="animation-delay:0s"/>
+      <circle class="star-twinkle-slow" cx="120"  cy="22"  r="0.9" fill="#fff" style="animation-delay:0.4s"/>
+      <circle class="star-twinkle-fast" cx="210"  cy="55"  r="1.5" fill="#fff" style="animation-delay:0.9s"/>
+      <circle class="star-twinkle"      cx="300"  cy="18"  r="1.0" fill="#fff" style="animation-delay:1.2s"/>
+      <circle class="star-twinkle-slow" cx="390"  cy="42"  r="1.3" fill="#fff" style="animation-delay:0.2s"/>
+      <circle class="star-twinkle-fast" cx="480"  cy="28"  r="0.8" fill="#fff" style="animation-delay:1.7s"/>
+      <circle class="star-twinkle"      cx="560"  cy="60"  r="1.2" fill="#fff" style="animation-delay:0.6s"/>
+      <circle class="star-twinkle-slow" cx="650"  cy="15"  r="1.0" fill="#fff" style="animation-delay:2.1s"/>
+      <circle class="star-twinkle-fast" cx="740"  cy="48"  r="0.9" fill="#fff" style="animation-delay:0.3s"/>
+      <circle class="star-twinkle"      cx="820"  cy="32"  r="1.4" fill="#fff" style="animation-delay:1.5s"/>
+      <circle class="star-twinkle-slow" cx="900"  cy="22"  r="0.7" fill="#fff" style="animation-delay:0.8s"/>
+      <circle class="star-twinkle-fast" cx="990"  cy="44"  r="1.1" fill="#fff" style="animation-delay:2.4s"/>
+      <circle class="star-twinkle"      cx="1050" cy="70"  r="0.8" fill="#fff" style="animation-delay:0.1s"/>
+      <circle class="star-twinkle-slow" cx="1180" cy="30"  r="1.3" fill="#fff" style="animation-delay:1.9s"/>
+      <circle class="star-twinkle-fast" cx="1260" cy="55"  r="1.0" fill="#fff" style="animation-delay:0.5s"/>
+      <circle class="star-twinkle"      cx="1350" cy="20"  r="1.2" fill="#fff" style="animation-delay:1.1s"/>
+      <circle class="star-twinkle-slow" cx="1420" cy="48"  r="0.9" fill="#fff" style="animation-delay:2.8s"/>
+      <!-- Row 2 -->
+      <circle class="star-twinkle-fast" cx="78"   cy="95"  r="1.0" fill="#fff" style="animation-delay:1.4s"/>
+      <circle class="star-twinkle"      cx="165"  cy="110" r="1.3" fill="#fff" style="animation-delay:0.7s"/>
+      <circle class="star-twinkle-slow" cx="248"  cy="88"  r="0.8" fill="#fff" style="animation-delay:2.2s"/>
+      <circle class="star-twinkle-fast" cx="340"  cy="120" r="1.1" fill="#fff" style="animation-delay:0.9s"/>
+      <circle class="star-twinkle"      cx="440"  cy="95"  r="0.9" fill="#fff" style="animation-delay:3.0s"/>
+      <circle class="star-twinkle-slow" cx="530"  cy="108" r="1.4" fill="#fff" style="animation-delay:1.6s"/>
+      <circle class="star-twinkle-fast" cx="620"  cy="82"  r="1.0" fill="#fff" style="animation-delay:0.3s"/>
+      <circle class="star-twinkle"      cx="710"  cy="118" r="0.7" fill="#fff" style="animation-delay:2.5s"/>
+      <circle class="star-twinkle-slow" cx="800"  cy="90"  r="1.2" fill="#fff" style="animation-delay:0.6s"/>
+      <circle class="star-twinkle-fast" cx="880"  cy="105" r="1.5" fill="#fff" style="animation-delay:1.3s"/>
+      <circle class="star-twinkle"      cx="960"  cy="75"  r="0.8" fill="#fff" style="animation-delay:2.0s"/>
+      <circle class="star-twinkle-slow" cx="1150" cy="100" r="1.1" fill="#fff" style="animation-delay:0.4s"/>
+      <circle class="star-twinkle-fast" cx="1220" cy="88"  r="0.9" fill="#fff" style="animation-delay:1.8s"/>
+      <circle class="star-twinkle"      cx="1310" cy="115" r="1.3" fill="#fff" style="animation-delay:2.7s"/>
+      <!-- Row 3 (mid-sky) -->
+      <circle class="star-twinkle-slow" cx="55"   cy="175" r="0.8" fill="#fff" style="animation-delay:1.0s"/>
+      <circle class="star-twinkle-fast" cx="145"  cy="155" r="1.2" fill="#fff" style="animation-delay:2.3s"/>
+      <circle class="star-twinkle"      cx="230"  cy="190" r="0.9" fill="#fff" style="animation-delay:0.2s"/>
+      <circle class="star-twinkle-slow" cx="320"  cy="162" r="1.4" fill="#fff" style="animation-delay:1.7s"/>
+      <circle class="star-twinkle-fast" cx="415"  cy="178" r="1.0" fill="#fff" style="animation-delay:0.8s"/>
+      <circle class="star-twinkle"      cx="510"  cy="148" r="0.7" fill="#fff" style="animation-delay:2.9s"/>
+      <circle class="star-twinkle-slow" cx="600"  cy="185" r="1.1" fill="#fff" style="animation-delay:1.4s"/>
+      <circle class="star-twinkle-fast" cx="688"  cy="160" r="1.3" fill="#fff" style="animation-delay:0.5s"/>
+      <circle class="star-twinkle"      cx="780"  cy="172" r="0.8" fill="#fff" style="animation-delay:2.1s"/>
+      <circle class="star-twinkle-slow" cx="860"  cy="145" r="1.0" fill="#fff" style="animation-delay:0.1s"/>
+      <circle class="star-twinkle-fast" cx="1030" cy="180" r="1.2" fill="#fff" style="animation-delay:1.6s"/>
+      <circle class="star-twinkle"      cx="1200" cy="158" r="0.9" fill="#fff" style="animation-delay:3.1s"/>
+      <circle class="star-twinkle-slow" cx="1380" cy="170" r="1.1" fill="#fff" style="animation-delay:2.4s"/>
+    </svg>
+
+    <!-- LAYER 2: MOUNTAINS — data-speed 0.3 -->
+    <svg id="layer-mountains"
+         class="parallax-layer"
+         data-speed="0"
+         xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice"
+         aria-hidden="true">
+      <defs>
+        <linearGradient id="mountainGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#2a1040" />
+          <stop offset="100%" stop-color="#1a0830" />
+        </linearGradient>
+      </defs>
+
+      <!-- Main mesa/hill silhouette — a complex polygon path -->
+      <!-- Far left hill -->
+      <path d="
+        M-20,900
+        L-20,620
+        Q60,540 130,560
+        Q190,520 240,480
+        Q310,430 380,470
+        Q430,450 480,400
+        Q540,360 600,390
+        Q660,340 720,320
+        Q780,360 840,300
+        Q900,260 950,290
+        Q1010,340 1070,380
+        Q1120,350 1170,310
+        Q1230,350 1290,330
+        Q1350,360 1400,380
+        Q1440,400 1460,420
+        L1460,900
+        Z
+      " fill="url(#mountainGrad)" />
+
+      <!-- Second, slightly lighter ridge for depth -->
+      <path d="
+        M-20,900
+        L-20,680
+        Q80,650 160,630
+        Q240,600 330,620
+        Q410,590 500,610
+        Q580,580 660,570
+        Q730,590 800,560
+        Q870,540 940,560
+        Q1020,540 1100,570
+        Q1180,550 1260,580
+        Q1340,560 1420,600
+        L1460,620
+        L1460,900
+        Z
+      " fill="#1e0c38" opacity="0.7" />
+    </svg>
+
+    <!-- LAYER 3: CACTI — data-speed 0.55 -->
+    <svg id="layer-cacti"
+         class="parallax-layer"
+         data-speed="0"
+         xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice"
+         aria-hidden="true">
+      <defs>
+        <linearGradient id="cactusGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#1e5228" />
+          <stop offset="50%"  stop-color="#2d6a35" />
+          <stop offset="100%" stop-color="#1e5228" />
+        </linearGradient>
+      </defs>
+
+      <!-- LEFT SAGUARO — centered around x=260 -->
+      <!-- Main trunk -->
+      <rect x="242" y="430" width="36" height="250" rx="18" fill="url(#cactusGrad)" />
+      <!-- Left arm connection -->
+      <rect x="206" y="520" width="40" height="22" rx="11" fill="url(#cactusGrad)" />
+      <!-- Left arm vertical -->
+      <rect x="194" y="440" width="26" height="104" rx="13" fill="url(#cactusGrad)" />
+      <!-- Right arm connection -->
+      <rect x="274" y="555" width="40" height="22" rx="11" fill="url(#cactusGrad)" />
+      <!-- Right arm vertical -->
+      <rect x="300" y="465" width="26" height="114" rx="13" fill="url(#cactusGrad)" />
+      <!-- Spines — small lines on trunk -->
+      <line x1="253" y1="460" x2="240" y2="452" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="266" y1="472" x2="279" y2="464" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="253" y1="500" x2="240" y2="492" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="266" y1="512" x2="279" y2="504" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="253" y1="540" x2="240" y2="532" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="266" y1="552" x2="279" y2="544" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="253" y1="590" x2="240" y2="582" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="266" y1="602" x2="279" y2="594" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <!-- Left arm spines -->
+      <line x1="204" y1="468" x2="192" y2="460" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="216" y1="480" x2="218" y2="466" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <!-- Right arm spines -->
+      <line x1="310" y1="490" x2="322" y2="482" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="310" y1="510" x2="298" y2="502" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+
+      <!-- RIGHT SAGUARO — centered around x=1180 -->
+      <!-- Main trunk (taller) -->
+      <rect x="1162" y="390" width="44" height="300" rx="22" fill="url(#cactusGrad)" />
+      <!-- Left arm connection -->
+      <rect x="1116" y="500" width="50" height="26" rx="13" fill="url(#cactusGrad)" />
+      <!-- Left arm vertical -->
+      <rect x="1102" y="410" width="32" height="116" rx="16" fill="url(#cactusGrad)" />
+      <!-- Right arm connection (higher up) -->
+      <rect x="1202" y="470" width="46" height="26" rx="13" fill="url(#cactusGrad)" />
+      <!-- Right arm vertical -->
+      <rect x="1218" y="375" width="32" height="121" rx="16" fill="url(#cactusGrad)" />
+      <!-- Trunk spines -->
+      <line x1="1174" y1="420" x2="1160" y2="412" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <line x1="1190" y1="434" x2="1206" y2="426" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <line x1="1174" y1="475" x2="1160" y2="467" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <line x1="1190" y1="489" x2="1206" y2="481" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <line x1="1174" y1="530" x2="1160" y2="522" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <line x1="1190" y1="544" x2="1206" y2="536" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <line x1="1174" y1="590" x2="1160" y2="582" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <line x1="1190" y1="604" x2="1206" y2="596" stroke="#4a8a52" stroke-width="1.5" opacity="0.8"/>
+      <!-- Left arm spines -->
+      <line x1="1114" y1="435" x2="1100" y2="427" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="1128" y1="448" x2="1130" y2="434" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <!-- Right arm spines -->
+      <line x1="1228" y1="398" x2="1242" y2="390" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+      <line x1="1228" y1="418" x2="1216" y2="410" stroke="#4a8a52" stroke-width="1.2" opacity="0.8"/>
+
+      <!-- DESERT GROUND — anchors the cacti to the earth -->
+      <defs>
+        <linearGradient id="groundUnder" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#3d2510" />
+          <stop offset="60%"  stop-color="#2a1808" />
+          <stop offset="100%" stop-color="#1a0f06" />
+        </linearGradient>
+      </defs>
+      <!-- Main ground plane — horizon sits at ~y=682, matching cactus bases -->
+      <path d="
+        M-10,900
+        L-10,692
+        Q180,670 360,665
+        Q540,658 720,660
+        Q900,658 1080,664
+        Q1260,670 1450,688
+        L1450,900
+        Z
+      " fill="url(#groundUnder)" />
+      <!-- Subtle lighter ridge along the horizon line -->
+      <path d="
+        M-10,695
+        Q180,672 360,667
+        Q540,660 720,662
+        Q900,660 1080,666
+        Q1260,672 1450,690
+        L1450,700
+        Q1260,682 1080,676
+        Q900,670 720,672
+        Q540,670 360,677
+        Q180,682 -10,705
+        Z
+      " fill="#4a2e14" opacity="0.5" />
+      <!-- Rocks scattered on the surface -->
+      <ellipse cx="140"  cy="676" rx="32" ry="10" fill="#2a1808" opacity="0.85"/>
+      <ellipse cx="150"  cy="671" rx="18" ry="7"  fill="#3a2010" opacity="0.75"/>
+      <ellipse cx="450"  cy="665" rx="24" ry="8"  fill="#2a1808" opacity="0.85"/>
+      <ellipse cx="720"  cy="668" rx="40" ry="13" fill="#2a1808" opacity="0.8"/>
+      <ellipse cx="732"  cy="661" rx="22" ry="8"  fill="#3a2010" opacity="0.75"/>
+      <ellipse cx="980"  cy="672" rx="28" ry="9"  fill="#2a1808" opacity="0.85"/>
+      <ellipse cx="1280" cy="682" rx="36" ry="12" fill="#2a1808" opacity="0.8"/>
+      <ellipse cx="330"  cy="674" rx="7"  ry="3"  fill="#2a1808" opacity="0.65"/>
+      <ellipse cx="830"  cy="669" rx="6"  ry="3"  fill="#2a1808" opacity="0.65"/>
+      <ellipse cx="1100" cy="674" rx="9"  ry="3"  fill="#2a1808" opacity="0.6"/>
+    </svg>
+
+    <!-- LAYER 4: GROUND — data-speed 0.8 (fastest / nearest) -->
+    <svg id="layer-ground"
+         class="parallax-layer"
+         data-speed="0"
+         xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice"
+         aria-hidden="true">
+      <defs>
+        <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#3d2510" />
+          <stop offset="100%" stop-color="#1a0f06" />
+        </linearGradient>
+      </defs>
+
+      <!-- Main ground plane — rises at sides like desert floor perspective -->
+      <path d="
+        M-10,900
+        L-10,760
+        Q180,720 360,710
+        Q540,700 720,705
+        Q900,700 1080,712
+        Q1260,720 1450,750
+        L1450,900
+        Z
+      " fill="url(#groundGrad)" />
+
+      <!-- Rocks / small boulders scattered on ground -->
+      <ellipse cx="140"  cy="758" rx="38" ry="14" fill="#2a1808" opacity="0.9"/>
+      <ellipse cx="148"  cy="752" rx="22" ry="10" fill="#3a2010" opacity="0.8"/>
+
+      <ellipse cx="450"  cy="715" rx="28" ry="10" fill="#2a1808" opacity="0.9"/>
+      <ellipse cx="458"  cy="710" rx="16" ry="7"  fill="#3a2010" opacity="0.7"/>
+
+      <ellipse cx="720"  cy="712" rx="45" ry="16" fill="#2a1808" opacity="0.85"/>
+      <ellipse cx="730"  cy="704" rx="25" ry="10" fill="#3a2010" opacity="0.8"/>
+
+      <ellipse cx="980"  cy="720" rx="32" ry="12" fill="#2a1808" opacity="0.9"/>
+      <ellipse cx="990"  cy="714" rx="18" ry="8"  fill="#3a2010" opacity="0.7"/>
+
+      <ellipse cx="1280" cy="748" rx="42" ry="15" fill="#2a1808" opacity="0.85"/>
+      <ellipse cx="1292" cy="740" rx="24" ry="9"  fill="#3a2010" opacity="0.75"/>
+
+      <!-- Small pebble clusters -->
+      <ellipse cx="310"  cy="738" rx="8"  ry="4"  fill="#2a1808" opacity="0.7"/>
+      <ellipse cx="825"  cy="722" rx="6"  ry="3"  fill="#2a1808" opacity="0.7"/>
+      <ellipse cx="1100" cy="736" rx="10" ry="4"  fill="#2a1808" opacity="0.65"/>
+      <ellipse cx="580"  cy="720" rx="7"  ry="3"  fill="#2a1808" opacity="0.7"/>
+      <ellipse cx="1400" cy="762" rx="9"  ry="4"  fill="#2a1808" opacity="0.65"/>
+    </svg>
+
+    <!-- HERO TEXT — parallaxes upward while scenery stays fixed -->
+    <div class="hero-text" data-speed="0.4">
+      <h1 class="hero-title">DERBAWKA</h1>
+      <p class="hero-subtitle">The Derbawka Family</p>
+    </div>
+
+    <!-- SCROLL HINT -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 3v14M4 11l6 6 6-6" stroke="rgba(254,243,199,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+  </section><!-- /hero -->
+
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section class="contact" id="contact" aria-label="Contact">
+    <div class="contact-header">
+      <h2>Get In Touch</h2>
+    </div>
+
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/xpqyroyw"
+      method="POST"
+    >
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Jane Smith"
+          required
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          placeholder="Say hello..."
+          required
+        ></textarea>
+      </div>
+
+      <!-- Hidden field so Formspree routes reply-to correctly -->
+      <input type="hidden" name="_replyto" value="" />
+      <input type="hidden" name="_subject" value="New message from derbawka.com" />
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <p>&copy; 2026 The Derbawka Family</p>
+  </footer>
+
+  <script src="js/parallax.js"></script>
+</body>
+</html>

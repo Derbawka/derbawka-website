@@ -1,0 +1,344 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f0a1a;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   PARALLAX LAYERS
+   ============================================================ */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  will-change: transform;
+  pointer-events: none;
+}
+
+#layer-sky {
+  z-index: 1;
+}
+
+#layer-mountains {
+  z-index: 2;
+}
+
+#layer-cacti {
+  z-index: 3;
+}
+
+#layer-ground {
+  z-index: 4;
+}
+
+/* ============================================================
+   STAR TWINKLE ANIMATION
+   ============================================================ */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; r: 1.2px; }
+  50%       { opacity: 0.2; r: 0.6px; }
+}
+
+@keyframes twinkleSlow {
+  0%, 100% { opacity: 0.8; }
+  50%       { opacity: 0.1; }
+}
+
+@keyframes twinkleFast {
+  0%, 100% { opacity: 1; }
+  33%       { opacity: 0.3; }
+  66%       { opacity: 0.9; }
+}
+
+.star-twinkle        { animation: twinkle 3s ease-in-out infinite; }
+.star-twinkle-slow   { animation: twinkleSlow 5s ease-in-out infinite; }
+.star-twinkle-fast   { animation: twinkleFast 1.8s ease-in-out infinite; }
+
+/* ============================================================
+   HERO TEXT
+   ============================================================ */
+.hero-text {
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(64px, 18vw, 260px);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-shadow:
+    0 0 60px rgba(109, 40, 217, 0.9),
+    0 0 120px rgba(109, 40, 217, 0.5),
+    0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(11px, 2.5vw, 18px);
+  letter-spacing: clamp(0.1em, 0.35em, 0.35em);
+  text-transform: uppercase;
+  color: rgba(254, 243, 199, 0.6);
+  margin-top: 12px;
+}
+
+/* ============================================================
+   SCROLL HINT ARROW
+   ============================================================ */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-hint span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba(254, 243, 199, 0.4);
+  text-transform: uppercase;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+.scroll-hint svg {
+  animation: bounce 1.8s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact {
+  background-color: #0f0a1a;
+  padding: 100px 24px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.contact-header h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(42px, 8vw, 80px);
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(109, 40, 217, 0.6);
+}
+
+.contact-header p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: rgba(254, 243, 199, 0.4);
+  margin-top: 10px;
+}
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
+.contact-form {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(109, 40, 217, 0.3);
+  border-radius: 4px;
+  padding: 14px 16px;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(109, 40, 217, 0.8);
+  background: rgba(109, 40, 217, 0.06);
+}
+
+.form-group textarea {
+  min-height: 160px;
+}
+
+.submit-btn {
+  align-self: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  border: none;
+  border-radius: 4px;
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(109, 40, 217, 0.4);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(109, 40, 217, 0.6);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background-color: #0f0a1a;
+  border-top: 1px solid rgba(109, 40, 217, 0.15);
+  padding: 24px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .contact {
+    padding: 80px 32px 100px;
+  }
+
+  .contact-form {
+    gap: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 100svh; /* use small viewport height on mobile to avoid address-bar jump */
+  }
+
+  .contact {
+    padding: 60px 20px 80px;
+  }
+
+  .contact-form {
+    gap: 18px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+    padding: 13px 14px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 20px;
+  }
+
+  .scroll-hint {
+    bottom: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-twinkle,
+  .star-twinkle-slow,
+  .star-twinkle-fast { animation: none; }
+
+  .scroll-hint svg { animation: none; }
+
+  .parallax-layer { transform: none !important; }
+}
