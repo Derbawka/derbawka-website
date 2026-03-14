@@ -120,6 +120,32 @@ GitHub Pages auto-deploys from `main` branch root. Live within ~1 minute.
 
 ---
 
+## Security Hardening (2026-03-14)
+
+### Self-hosted fonts
+Google Fonts CDN dependency removed. Font files in `fonts/`:
+- `fonts/BebasNeue-Regular.woff2`
+- `fonts/Inter-Latin.woff2` (variable weight 300–400)
+
+### Formspree honeypot
+`<input type="text" name="_gotcha" style="display:none">` in the contact form. Formspree drops any submission with this field filled.
+
+### Cloudflare
+Nameservers on GoDaddy point to Cloudflare (`amos.ns.cloudflare.com`, `bingo.ns.cloudflare.com`). Both `derbawka.com` and `hub.derbawka.com` are proxied.
+
+Security headers delivered via Cloudflare Transform Rule:
+| Header | Value |
+|--------|-------|
+| `X-Frame-Options` | `DENY` |
+| `X-Content-Type-Options` | `nosniff` |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=()` |
+| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains` |
+
+Always Use HTTPS: enabled in Cloudflare.
+
+---
+
 ## Custom Domain (derbawka.com via GoDaddy)
 
 ### CNAME file
@@ -152,7 +178,8 @@ derbawka.com
 | Styles | Vanilla CSS (no framework) |
 | Animation | CSS keyframes + `requestAnimationFrame` |
 | Parallax | Custom lightweight JS (~85 lines) |
-| Fonts | Google Fonts — Bebas Neue + Inter |
+| Fonts | Self-hosted woff2 — Bebas Neue + Inter (no CDN) |
 | Contact form | Formspree (no backend) |
 | Hosting | GitHub Pages |
-| Domain | GoDaddy → GitHub Pages DNS |
+| Domain | GoDaddy → Cloudflare → GitHub Pages |
+| CDN / Security | Cloudflare free tier (security headers, HTTPS enforcement) |
