@@ -120,7 +120,19 @@ GitHub Pages auto-deploys from `main` branch root. Live within ~1 minute.
 
 ---
 
-## Security Hardening (2026-03-14)
+## Security Hardening (2026-03-14 + 2026-03-20)
+
+### CSP (2026-03-20)
+Content Security Policy added via Cloudflare Transform Rule "Security Headers - CSP":
+`default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://static.cloudflareinsights.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self';`
+
+`style-src 'unsafe-inline'` is accepted risk — 69 inline `animation-delay` style attributes on SVG stars make strict removal impractical.
+
+### Cloudflare Web Analytics (2026-03-20)
+RUM re-enabled. Beacon domain `static.cloudflareinsights.com` whitelisted in CSP `script-src` and `connect-src`.
+
+### GitHub noreply email (2026-03-20)
+GitHub noreply email enabled — future commits no longer expose nick@derbawka.com. (12 prior commits already public; cannot be scrubbed without destructive history rewrite.)
 
 ### Self-hosted fonts
 Google Fonts CDN dependency removed. Font files in `fonts/`:
