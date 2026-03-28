@@ -11,3 +11,5 @@ npm-debug.log*
 .idea/
 .claude/
 .playwright-mcp/
+*recovery_code*
+*2FA*.txt
