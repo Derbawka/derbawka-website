@@ -120,7 +120,7 @@ body {
 }
 
 .hero-title {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif;
   font-size: clamp(64px, 18vw, 260px);
   line-height: 0.9;
   letter-spacing: 0.04em;
@@ -199,7 +199,7 @@ body {
 }
 
 .contact-header h2 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif;
   font-size: clamp(42px, 8vw, 80px);
   letter-spacing: 0.06em;
   color: #ffffff;
@@ -273,7 +273,7 @@ body {
 
 .submit-btn {
   align-self: center;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif;
   font-size: 18px;
   letter-spacing: 0.15em;
   color: #ffffff;
