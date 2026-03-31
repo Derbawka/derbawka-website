@@ -90,3 +90,5 @@ Form resets on back-navigation via `pageshow` + `e.persisted` check in `parallax
 - `style-src 'unsafe-inline'` accepted in CSP — 69 inline `animation-delay` SVG star attributes make strict removal impractical; inline styles cannot execute scripts
 - GitHub Pages CNAME file at repo root must contain exactly `derbawka.com`
 - GitHub noreply email enabled (2026-03-20) — git `user.email` is `267784401+Derbawka@users.noreply.github.com` (set globally + locally on both repos); 12 prior commits already expose nick@derbawka.com in public history
+- Font preloads in `index.html` (added 2026-03-28 — commit 6630c5a): `<link rel="preload" as="font" crossorigin>` for both woff2 files must remain; they eliminate FOUT. Do not remove.
+- Bebas Neue fallback is `'Impact', 'Arial Narrow', sans-serif` (changed from `cursive` in commit 6630c5a, 3 occurrences in `style.css`). The `cursive` fallback caused jarring FOUT with a script font; Impact/Arial Narrow are condensed and visually close.

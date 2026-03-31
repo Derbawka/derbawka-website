@@ -120,7 +120,7 @@ GitHub Pages auto-deploys from `main` branch root. Live within ~1 minute.
 
 ---
 
-## Security Hardening (2026-03-14 + 2026-03-20)
+## Security Hardening (2026-03-14 + 2026-03-20 + 2026-03-28)
 
 ### CSP (2026-03-20)
 Content Security Policy added via Cloudflare Transform Rule "Security Headers - CSP":
@@ -139,6 +139,10 @@ Google Fonts CDN dependency removed. Font files in `fonts/`:
 - `fonts/BebasNeue-Regular.woff2`
 - `fonts/Inter-Latin.woff2` (variable weight 300–400)
 
+`<link rel="preload" as="font" crossorigin>` tags added for both files in `index.html` `<head>` (commit 6630c5a, 2026-03-28) — eliminates FOUT.
+
+`font-family` fallback for Bebas Neue updated to `'Impact', 'Arial Narrow', sans-serif` (was `cursive`) — ensures condensed visual match before font loads (3 occurrences in `css/style.css`).
+
 ### Formspree honeypot
 `<input type="text" name="_gotcha" style="display:none">` in the contact form. Formspree drops any submission with this field filled.
 
@@ -151,10 +155,16 @@ Security headers delivered via Cloudflare Transform Rule:
 | `X-Frame-Options` | `DENY` |
 | `X-Content-Type-Options` | `nosniff` |
 | `Referrer-Policy` | `strict-origin-when-cross-origin` |
-| `Permissions-Policy` | `camera=(), microphone=(), geolocation=()` |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), payment=(), usb=()` |
 | `Strict-Transport-Security` | `max-age=31536000; includeSubDomains` |
 
 Always Use HTTPS: enabled in Cloudflare.
+
+### Round 9 (2026-03-28 — commit 91778c4)
+- **`<meta>` CSP fallback** added to `index.html` `<head>` (defence-in-depth; `frame-ancestors` omitted — header-only directive)
+- **`_replyto` hidden field removed** from contact form
+- **`.gitignore`** updated with `*recovery_code*` and `*2FA*.txt` patterns
+- **`Permissions-Policy`** expanded in Cloudflare Transform Rule to include `payment=()` and `usb=()`
 
 ---
 
