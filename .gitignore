@@ -9,7 +9,7 @@ test-results/
 npm-debug.log*
 .vscode/
 .idea/
-.claude/
+.claude/settings.local.json
 .playwright-mcp/
 screenshot-*.png
 *recovery_code*

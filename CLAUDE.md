@@ -60,3 +60,10 @@ git push
 - Project details (color palette, SVG layer breakdown, responsive cacti) → `memory/project_website.md`
 - Recent commits → `git log`
 - Test specs → `tests/hero.spec.ts`, `tests/contact.spec.ts`
+- Full memory index → `memory/MEMORY.md` (git-tracked in this repo — not machine-global, travels with the repo)
+
+---
+
+## New Machine?
+
+`memory/` and `.claude/agents/` are git-tracked and travel with this repo. After copying/cloning to a new machine: `npm install`, `chmod +x .git/hooks/pre-push`, `npx playwright install chromium`. Full checklist in `memory/project_website.md` → "New-machine setup checklist". The companion Derbawka Hub repo is expected as a sibling folder (`../derbawka-hub`) for the shared agents that reference both projects.
