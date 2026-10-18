@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "playwright test",
-    "posttest": "rm -rf .playwright-mcp && rm -f ./*.png"
+    "posttest": "node scripts/clean-test-artifacts.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.44.0",

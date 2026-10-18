@@ -66,4 +66,4 @@ git push
 
 ## New Machine?
 
-`memory/` and `.claude/agents/` are git-tracked and travel with this repo. After copying/cloning to a new machine: `npm install`, `chmod +x .git/hooks/pre-push`, `npx playwright install chromium`. Full checklist in `memory/project_website.md` → "New-machine setup checklist". The companion Derbawka Hub repo is expected as a sibling folder (`../derbawka-hub`) for the shared agents that reference both projects.
+`memory/` and `.claude/agents/` are git-tracked and travel with this repo; git hooks do not. After cloning (Mac or Windows): `npm install`, `npx playwright install chromium`, then recreate `.git/hooks/pre-push` — a `#!/bin/sh` script that `cd`s to the repo root and runs `npm test` unless `git diff HEAD origin/main --name-only` is `.md`-only (`chmod +x` it). `npm test` → 22 passed / 2 skipped. The `posttest` cleanup is `scripts/clean-test-artifacts.js` (plain Node, cross-platform). Full checklist in `memory/project_website.md` → "New-machine setup checklist". The companion Derbawka Hub repo is expected as a sibling folder (`../derbawka-hub`) for the shared agents that reference both projects.

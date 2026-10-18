@@ -70,14 +70,18 @@ base-uri 'self';
 
 ## New-machine setup checklist
 
-If this repo was just copied to a different computer:
+Last done 2026-10-18 on Nick's personal Windows 11 PC (Node v24.19, npm 11.17). Previously a Mac (Node v24.14). All tooling is cross-platform Node.
 
-1. `node -v` / `npm -v` — last verified working on Node v24.14, npm 11.9.
-2. `npm install` at repo root.
-3. `chmod +x .git/hooks/pre-push` — executable bit can get stripped by some transfer methods (e.g. exFAT-formatted drives).
-4. `npx playwright install chromium` before running tests.
-5. Confirm `.claude/agents/` has 4 files (the shared agents — see `reference_agents.md`). If empty, copy from the Hub repo's `.claude/agents/`, or from `~/.claude/agents/` on the old machine if still accessible.
-6. The Cloudflare CSP Transform Rule (above) and DNS setup are dashboard-only — verify they still exist under whatever Cloudflare account now owns the `derbawka.com` zone.
+1. `node -v` / `npm -v` — v24.x works. `gh auth status` → Derbawka account.
+2. Git identity: `git config user.email 267784401+Derbawka@users.noreply.github.com`.
+3. `npm install` at repo root.
+4. `npx playwright install chromium`.
+5. Recreate `.git/hooks/pre-push` (git hooks are not cloned) — see CLAUDE.md → "New Machine?". `chmod +x` it.
+6. Verify: `npm test` → 22 passed, 2 skipped (viewport-conditional). Playwright auto-starts `npx serve . -p 3333 -s`.
+7. Confirm `.claude/agents/` has 4 files (the shared agents — see `reference_agents.md`).
+8. The Cloudflare CSP Transform Rule (above) and DNS setup are dashboard-only — verify they still exist under whatever Cloudflare account owns the `derbawka.com` zone.
+9. Windows note: `core.autocrlf=true` makes working-tree files CRLF while the repo stays LF; "LF will be replaced by CRLF" warnings are harmless.
+10. Dev-dependency audit: `serve@14` depends on `compression <1.8.2` (GHSA-vc2v-76pw-4v95). `serve` only runs locally for Playwright and is never deployed — accepted; see `security_status.md`.
 
 ## Source-of-Truth Pointers
 
