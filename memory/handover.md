@@ -9,8 +9,8 @@ type: project
 
 ## Current State
 
-- **Deployed:** `e9e6748` on 2026-04-27 (GitHub Pages auto-deploys from `main`) · 0 open issues
-- **Local, uncommitted, awaiting Nick's review (2026-10-18):** Nick's personal Windows PC is now the dev machine. Working tree holds: cross-platform `scripts/clean-test-artifacts.js` replacing the `rm`-based `posttest` command, and a `package-lock.json` bump from `npm audit fix` (brace-expansion, dev-only). No site content changed. Deploy = commit + push to `main` (GitHub Pages, ~1 min).
+- **Deployed:** `ece12d6` on 2026-10-18 (GitHub Pages auto-deploys from `main`; Pages build confirmed) · 0 open issues. Tooling/docs only — cross-platform `scripts/clean-test-artifacts.js`, dev-only lockfile bump, Windows setup docs. No site content changed since `e9e6748` (2026-04-27).
+- **Dev machine:** Nick's personal Windows 11 PC since 2026-10-18. Setup state: `project_website.md` → "New-machine setup checklist".
 - **Tests:** 22 pass on the PC (24 declared, 2 viewport-conditional skips by design — `npm test` from repo root)
 
 - **2026-08-05:** Repo migrated off a work laptop onto portable storage ahead of Nick leaving his employer. This `memory/` folder (and the equivalent one in the Hub repo) was materialized from what had previously been machine-local Claude Code memory at `~/.claude/projects/.../memory/`, specifically so full project context survives the move to a new computer. If you're reading this after that move: the old machine's global `~/.claude/agents/` also held 4 shared subagents (`uiux-designer`, `test-runner`, `security-auditor`, `pre-compact`) — copies now live in this repo's `.claude/agents/` and the Hub repo's, so no manual copy step should be needed. See `reference_agents.md`.
